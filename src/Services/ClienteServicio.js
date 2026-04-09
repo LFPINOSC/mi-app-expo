@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 import Cliente from "../Entity/Cliente";
 
 const ClienteServicio= createContext();
-export function ClienteServicio({children}) {
+export function ClienteServicios({children}) {
 
     const [clientes, setClientes] = useState([]);
     const agregarCliente = (nombre, email, telefone) => {
@@ -17,9 +17,9 @@ export function ClienteServicio({children}) {
             cliente.id === id ? clienteActualizado : cliente));
     };
     return(
-        <ClienteServicio.Provider value={{clientes, agregarCliente, eliminarClientes, actualizarClientes}}>
+        <ClienteServicio value={{clientes, agregarCliente, eliminarClientes, actualizarClientes}}>
             {children}
-        </ClienteServicio.Provider>
+        </ClienteServicio>
     );
 }
 
